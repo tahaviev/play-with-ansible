@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  master:
+    build: master
+    command: sleep infinity
+    volumes:
+      - ./master/hosts.yml:/etc/ansible/hosts
+      - ./master/ansible.cfg:/etc/ansible/ansible.cfg
+  worker:
+    build: worker
+    volumes:
+      - ./worker/sshd_config:/etc/ssh/sshd_config
